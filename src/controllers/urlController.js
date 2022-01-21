@@ -73,7 +73,7 @@ const genrateShortUrl = async function (req, res) {
             return res.status(200).send({ status: true, msg: "This url already have shortUrl", data: checkUrl })
         }
 
-      try {
+          try {
             let reponse = await axios.get(`${requestBody.longUrl}`)
           } catch (error) {
             return res.status(400).send({ status: false, msg: "this is invalid url" })
@@ -119,7 +119,7 @@ const getUrl = async function (req, res) {
 
             console.log("hyy i am if part of get api")
             
-            res.redirect(301, `${abc.longUrl}`);
+            res.status(301).redirect(301, `${abc.longUrl}`);
             
 
         } else {
@@ -134,7 +134,7 @@ const getUrl = async function (req, res) {
 
                console.log("i am else part of get api")
 
-            res.redirect(301, `${urlData.longUrl}`);
+            res.status(301).redirect(301, `${urlData.longUrl}`);
             
         }
       } catch (error) {
